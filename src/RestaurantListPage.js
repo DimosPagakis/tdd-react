@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import NewRestaurantForm from './NewRestaurantForm';
 import RestaurantList from './RestaurantList';
 
-
 // Styling
 import {
   Button,

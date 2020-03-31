@@ -11,6 +11,7 @@ module.exports = {
     env: {
         'jest/globals': true,
         'browser': true,
-        "cypress/globals": true
+        "cypress/globals": true,
+        "jquery": true
     }
 };
