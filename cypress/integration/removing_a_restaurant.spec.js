@@ -8,8 +8,9 @@ describe('deleting a restaurant', () => {
     cy.get('[data-test="addRestaurantButton"]')
       .click();
 
+    // force: true becuase input is covered by label (materialize css)
     cy.get('[data-test="newRestaurantName"]')
-      .type('anything');
+      .type('anything', { force: true });
 
     cy.get('[data-test="saveNewRestaurantButton"]')
       .click();
