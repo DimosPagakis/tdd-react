@@ -6,12 +6,11 @@
     "author": "Josh Justice <me@codingitwrong.com> , Dimosthenis Pagakis <dimosthenispagakis@gmail.com>",
     "license": "Apache-2.0",
     "scripts": {
-        "start": "parcel  index.html",
+        "start": "parcel index.html",
         "lint": "eslint src/**/*.js test/**/*.js cypress/integration/*.js",
         "unit": "jest test/**/*.spec.js",
         "e2e": "cypress open"
     },
-    "pre-commit": ["lint"],
     "devDependencies": {
         "@babel/core": "^7.9.0",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
