@@ -26,3 +26,5 @@ jobs:
       - run: bin/cypress
       # Run unit tests
       - run: yarn unit
+      # Run lint
+      - run: yarn lint
