@@ -25,6 +25,5 @@ jobs:
           name: Install wait on (using npm because global intalls with yarn are sketcy)
           command: npm install -g wait-on
       - run:
-          name: Wait for server to start
-          command: yarn start && wait-on http://localhost:1234
-      - run: $(yarn bin)/cypress run --record --key <record_key>
+          name: Start server and run test
+          command: bin/cypress
