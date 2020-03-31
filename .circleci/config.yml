@@ -21,10 +21,12 @@ jobs:
           key: v1-deps-{{ .Branch }}-Possible EventEmitter memory leak detected. 11 bundled listeners added.{{ checksum "package.json" }}
           paths:
             - ~/.cache ## cache both yarn and Cypress!
-      - run: npm install -g wait-on
-      # Run script filr that starts and waits for server and then runs e2e
-      - run: bin/cypress
-      # Run unit tests
+                  # Run unit tests
+      # Run fast tests for
       - run: yarn unit
       # Run lint
       - run: yarn lint
+      # Install wait on to run the server
+      - run: npm install -g wait-on
+      # Run script filr that starts and waits for server and then runs e2e
+      - run: bin/cypress
