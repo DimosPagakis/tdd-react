@@ -20,13 +20,6 @@ jobs:
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - ~/.cache  ## cache both yarn and Cypress!
-      - run:
-          name: Install wait on (using npm because global intalls with yarn are sketcy)
-          command: npm install -g wait-on
-      - run:
-          name: Start server
-          command: yarn start
-      - run:
-          name: Run cypress
-          command: $(yarn bin)/cypress run 
+            - ~/.cache ## cache both yarn and Cypress!
+      - run: npm install -g wait-on
+      - run: bin/cypress
