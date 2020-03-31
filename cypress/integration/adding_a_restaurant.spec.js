@@ -7,6 +7,16 @@ describe('adding a restaurant', () => {
     // confirm newRestaurantName field not shown
     cy.get('[data-test="newRestaurantName"]').should('not.be.visible');
 
+    // open and close modal without adding a new restaurant
+    cy.get('[data-test="addRestaurantButton"]')
+      .click();
+
+    cy.get('[data-test="addRestaurantModal"] button.modal-close')
+      .click();
+
+    cy.get('[data-test="newRestaurantName"]').should('not.be.visible');
+
+    // open modal and add a new restaurant
     cy.get('[data-test="addRestaurantButton"]')
       .click();
 
