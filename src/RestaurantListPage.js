@@ -42,13 +42,11 @@ export default class RestaurantListPage extends Component {
         <Row>
           <Col s={12}>
             <AddNewRestaurantModal></AddNewRestaurantModal>
-
           </Col>
         </Row>
         <Row>
           <Col s={12}>
             <Button
-              flat
               node="button"
               waves="light"
               data-test="addRestaurantButton"
@@ -57,6 +55,7 @@ export default class RestaurantListPage extends Component {
 
             <Modal
               id='addRestaurantModal'
+              data-test='addRestaurantModal'
             >
               <NewRestaurantForm onSave={this.handleAddRestaurant} />
 
