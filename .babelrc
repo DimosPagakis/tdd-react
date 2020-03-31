@@ -1,0 +1,13 @@
+/** Jest cannot use 'import' by default and therefore throws an error
+*   Also, it can not "read" JSX
+*   This babel configuration enables the use of import for Jest
+*/
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
+    ]
+}

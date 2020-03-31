@@ -1,0 +1,45 @@
+{
+    "name": "learn-react-tdd",
+    "version": "0.1.0",
+    "description": "Coding along CodingItWrong from his tdd react livestream",
+    "main": "index.js",
+    "author": "Josh Justice <me@codingitwrong.com> , Dimosthenis Pagakis <dimosthenispagakis@gmail.com>",
+    "license": "Apache-2.0",
+    "scripts": {
+        "start": "parcel  index.html",
+        "lint": "eslint src/**/*.js test/**/*.js cypress/integration/*.js",
+        "unit": "jest test/**/*.spec.js",
+        "e2e": "cypress open"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+        "@babel/preset-react": "^7.9.4",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^25.2.1",
+        "cypress": "^4.2.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
+        "eslint": "^6.8.0",
+        "eslint-config-codingitwrong": "^0.1.4",
+        "eslint-plugin-cypress": "^2.10.3",
+        "eslint-plugin-jest": "^23.8.2",
+        "eslint-plugin-react": "^7.19.0",
+        "jest": "^25.2.2",
+        "parcel-bundler": "^1.12.4"
+    },
+    "dependencies": {
+        "jquery": "^3.4.1",
+        "materialize-css": "^1.0.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-materialize": "^3.6.1"
+    },
+    "jest": {
+        "setupFilesAfterEnv": [
+            "<rootDir>/test/setup.js"
+        ]
+    }
+}

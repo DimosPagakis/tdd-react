@@ -1,0 +1,46 @@
+import React, { Component } from 'react';
+
+// styling
+import Material from 'materialize-css';
+import {
+  Button,
+  TextInput,
+  Row,
+  Col,
+} from 'react-materialize';
+
+export default class NewRestaurantForm extends Component {
+  state = { inputText: '' }
+
+  handleTextChange = e => {
+    this.setState({ inputText: e.target.value });
+  }
+
+  handleSave = () => {
+    const { inputText } = this.state;
+    const { onSave } = this.props;
+
+    onSave(inputText);
+  }
+
+  render() {
+    return (
+      <Row>
+        <Col s={12} m={8}>
+          <TextInput
+            label="Restaurant name"
+            onChange={this.handleTextChange}
+            data-test="newRestaurantName"
+          /></Col>
+        <Col s={12} m={4}>
+          <Button
+            waves="light"
+            data-test="saveNewRestaurantButton"
+            onClick={this.handleSave}
+          >Save
+          </Button>
+        </Col>
+      </Row >
+    );
+  }
+}
