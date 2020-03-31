@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 // styling
-
 import {
   Button,
   Collection,
@@ -26,12 +25,18 @@ export default class RestaurantList extends Component {
           restaurants.map(restaurantName => (
             <Row>
               <Col s={12} m={8}>
-                < CollectionItem key={restaurantName} data-test='restaurantNameListItem' > {restaurantName}
-                </CollectionItem></Col>
+                <CollectionItem
+                  key={restaurantName}
+                  data-test='restaurantNameListItem'>
+                  {restaurantName}
+                </CollectionItem>
+              </Col>
               <Col s={12} m={4}>
                 <Button
                   data-test='removeRestaurantButton'
-                  onClick={() => this.handleOnClick(restaurantName)}>Remove</Button>
+                  onClick={() => this.handleOnClick(restaurantName)}>
+                  Remove
+                </Button>
               </Col>
             </Row>
           ),

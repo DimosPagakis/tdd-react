@@ -31,7 +31,8 @@ export default class NewRestaurantForm extends Component {
             label="Restaurant name"
             onChange={this.handleTextChange}
             data-test="newRestaurantName"
-          /></Col>
+          />
+        </Col>
         <Col s={12} m={4}>
           <Button
             waves="light"
