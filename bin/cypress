@@ -2,8 +2,6 @@
 
 # Including these 2 commands in a separate .sh file so we can avoid the circleCI connection timeout error
 
-# Wait for the server to get started
-yarn start && wait-on http://localhost:1234
+# Wait for the server to get started and run the cypress test
+yarn start && wait-on http://localhost:1234 && $(yarn bin)/cypress run 
 
-# Run the test on circleCI
-$(yarn bin)/cypress run 
