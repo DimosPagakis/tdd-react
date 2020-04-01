@@ -18,10 +18,12 @@ describe('NewRestaurantForm', () => {
         .find('input[data-test="newRestaurantName"]')
         .simulate('change', { target: { value: RESTAURANT_NAME } });
 
-      wrapper.update();
-
       wrapper.find('button[data-test="saveNewRestaurantButton"]')
         .simulate('click');
+    });
+
+    it('calls the onSave handler', () => {
+      expect(saveHandler).toHaveBeenCalledWith(RESTAURANT_NAME);
     });
 
     it('clears the input field', () => {
@@ -31,9 +33,20 @@ describe('NewRestaurantForm', () => {
           .prop('value'),
       ).toEqual('');
     });
+  });
 
-    it('calls the onSave handler', () => {
-      expect(saveHandler).toHaveBeenCalledWith(RESTAURANT_NAME);
+  describe('no name and click save', () => {
+    it('does not add restaurant to list', () => {
+      const saveHandler = jest.fn();
+
+      const wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
+
+      wrapper
+        .find('button[data-test="saveNewRestaurantButton"]')
+        .simulate('click');
+
+      expect(saveHandler).not.toHaveBeenCalled();
+
     });
   });
 });
