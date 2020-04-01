@@ -23,10 +23,9 @@ export default class RestaurantList extends Component {
       <Collection header="Restaurants">
         {
           restaurants.map(restaurantName => (
-            <Row>
+            <Row key={restaurantName}>
               <Col s={12} m={8}>
                 <CollectionItem
-                  key={restaurantName}
                   data-test='restaurantNameListItem'>
                   {restaurantName}
                 </CollectionItem>

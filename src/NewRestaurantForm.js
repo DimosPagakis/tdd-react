@@ -21,15 +21,20 @@ export default class NewRestaurantForm extends Component {
     const { onSave } = this.props;
 
     onSave(inputText);
+
+    this.setState({ inputText: '' });
   }
 
   render() {
+    const { inputText } = this.state;
+
     return (
       <Row>
         <Col s={12} m={8}>
           <TextInput
             label="Restaurant name"
             onChange={this.handleTextChange}
+            value={inputText}
             data-test="newRestaurantName"
           />
         </Col>
