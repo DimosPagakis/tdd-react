@@ -33,9 +33,11 @@
     "dependencies": {
         "jquery": "^3.4.1",
         "materialize-css": "^1.0.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-materialize": "^3.6.1"
+        "react": ">=16.8.0",
+        "react-bootstrap": "^1.0.0",
+        "react-dom": ">=16.8.0",
+        "react-materialize": "^3.6.1",
+        "react-router-dom": "^5.1.2"
     },
     "jest": {
         "setupFilesAfterEnv": [
