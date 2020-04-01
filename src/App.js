@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import RestaurantListPage from './RestaurantListPage';
 
-import { Home as Sheep } from './SheepComponents/Home';
-import { Home as Kor } from './Korponents/Home';
-import { Home as Bench } from './BenchComponents/Home';
+import Sheep from './SheepComponents/Home';
+import Kor from './Korponents/Home';
+import Bench from './BenchComponents/Home';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 import { Row, Col } from 'react-materialize';
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (<div id="App">
       <Router>
         <Navbar expand="lg" variant="dark" bg="dark">
-
           <Row>
             <Col md={2} sm={2} xs={2}>
               <Navbar.Brand>TDD</Navbar.Brand>
