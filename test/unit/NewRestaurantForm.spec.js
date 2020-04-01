@@ -18,12 +18,14 @@ describe('NewRestaurantForm', () => {
         .find('input[data-test="newRestaurantName"]')
         .simulate('change', { target: { value: RESTAURANT_NAME } });
 
-      wrapper.find('button[data-test="saveNewRestaurantButton"]')
+      wrapper
+        .find('button[data-test="saveNewRestaurantButton"]')
         .simulate('click');
     });
 
     it('calls the onSave handler', () => {
-      expect(saveHandler).toHaveBeenCalledWith(RESTAURANT_NAME);
+      expect(saveHandler)
+        .toHaveBeenCalledWith(RESTAURANT_NAME);
     });
 
     it('clears the input field', () => {
@@ -46,7 +48,6 @@ describe('NewRestaurantForm', () => {
         .simulate('click');
 
       expect(saveHandler).not.toHaveBeenCalled();
-
     });
   });
 });
