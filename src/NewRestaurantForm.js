@@ -32,6 +32,37 @@ export default class NewRestaurantForm extends Component {
     return errors;
   }
 
+  renderForm = ({ values, errors, handleChange, handleSubmit }) => (
+    <form onSubmit={handleSubmit}>
+      <Row>
+        <TextInput
+          s={12} m={8}
+          label="Restaurant name"
+          name="restaurantName"
+          value={values.restaurantName}
+          error={errors.restaurantName}
+          onChange={handleChange}
+          data-test="newRestaurantName"
+        />
+        <Button
+          s={12} m={4}
+          type="submit"
+          waves="light"
+          data-test="saveNewRestaurantButton"
+        >Save
+        </Button>
+      </Row>
+      <Row>
+        <p
+          s={12}
+          data-test="newRestaurantNameError"
+          className="error"
+        >{errors.restaurantName}
+        </p>
+      </Row>
+    </form>
+  );
+
   render() {
     return (
       <Row>
@@ -40,36 +71,7 @@ export default class NewRestaurantForm extends Component {
           validate={this.validate}
           onSubmit={this.handleSave}
         >
-          {({ values, errors, handleChange, handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
-              <Row>
-                <TextInput
-                  s={12} m={8}
-                  label="Restaurant name"
-                  name="restaurantName"
-                  value={values.restaurantName}
-                  error={errors.restaurantName}
-                  onChange={handleChange}
-                  data-test="newRestaurantName"
-                />
-                <Button
-                  s={12} m={4}
-                  type="submit"
-                  waves="light"
-                  data-test="saveNewRestaurantButton"
-                >Save
-                </Button>
-              </Row>
-              <Row>
-                <p
-                  s={12}
-                  data-test="newRestaurantNameError"
-                  className="error"
-                >{errors.restaurantName}
-                </p>
-              </Row>
-            </form>
-          )}
+          { this.renderForm }
         </Formik>
       </Row >
     );
