@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Formik } from 'formik';
 
 // styling
 import Material from 'materialize-css';
@@ -6,49 +7,46 @@ import {
   Button,
   TextInput,
   Row,
-  Col,
 } from 'react-materialize';
 
 export default class NewRestaurantForm extends Component {
-  state = { inputText: '' }
+  handleSave = (values, { resetForm }) => {
+    const { restaurantName } = values;
 
-  handleTextChange = e => {
-    this.setState({ inputText: e.target.value });
-  }
-
-  handleSave = () => {
-    const { inputText } = this.state;
-
-    if (inputText !== '') {
+    if (restaurantName !== '') {
       const { onSave } = this.props;
 
-      onSave(inputText);
-
-      this.setState({ inputText: '' });
+      onSave(restaurantName);
+      resetForm();
     }
   }
 
   render() {
-    const { inputText } = this.state;
-
     return (
       <Row>
-        <Col s={12} m={8}>
-          <TextInput
-            label="Restaurant name"
-            onChange={this.handleTextChange}
-            value={inputText}
-            data-test="newRestaurantName"
-          />
-        </Col>
-        <Col s={12} m={4}>
-          <Button
-            waves="light"
-            data-test="saveNewRestaurantButton"
-            onClick={this.handleSave}
-          >Save
-          </Button>
-        </Col>
+        <Formik
+          initialValues={{ restaurantName: '' }}
+          onSubmit={this.handleSave}
+        >
+          {({ values, handleChange, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <TextInput
+                s={12} m={8}
+                label="Restaurant name"
+                name="restaurantName"
+                value={values.restaurantName}
+                onChange={handleChange}
+                data-test="newRestaurantName"
+              />
+              <Button
+                s={12} m={4}
+                waves="light"
+                data-test="saveNewRestaurantButton"
+              >Save
+              </Button>
+            </form>
+          )}
+        </Formik>
       </Row >
     );
   }
