@@ -52,6 +52,10 @@ describe('adding a restaurant', () => {
     cy.get('[data-test="newRestaurantName"]')
       .type(restaurantName, { force: true });
 
+    // make sure validation error is not shown after user has input text
+    cy.get('[data-test="newRestaurantNameError"]')
+      .should('not.be.visible');
+
     cy.get('[data-test="saveNewRestaurantButton"]')
       .click();
 
