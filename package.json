@@ -28,12 +28,14 @@
         "eslint-plugin-jest": "^23.8.2",
         "eslint-plugin-react": "^7.19.0",
         "jest": "^25.2.2",
-        "parcel-bundler": "^1.12.4"
+        "parcel-bundler": "^1.12.4",
+        "sass": "^1.26.3"
     },
     "dependencies": {
         "formik": "^2.1.4",
         "jquery": "^3.4.1",
         "materialize-css": "^1.0.0",
+        "node-sass": "^4.13.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-materialize": "^3.6.1"
