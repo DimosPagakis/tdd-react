@@ -1,7 +1,6 @@
 describe('adding a restaurant', () => {
   const restaurantName = 'Sushi Place';
   it('displays the reastaurant in thet list', () => {
-
     cy.visit('http://localhost:1234');
 
     modalNotShown();
@@ -14,7 +13,6 @@ describe('adding a restaurant', () => {
   function modalNotShown() {
     // confirm newRestaurantName field not shown
     cy.get('[data-test="newRestaurantName"]').should('not.be.visible');
-
   }
 
   function canCloseModal() {
