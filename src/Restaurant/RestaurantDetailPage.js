@@ -32,6 +32,14 @@ export default class RestaurantDetailPage extends Component {
     return (
       <div>
         <Row>
+          <Col>
+            <Button
+              s={12}
+              data-test="backButton"
+              onClick={() => this.props.history.goBack()}>Back</Button>
+          </Col>
+        </Row>
+        <Row>
           <Col >
             <Button s={12} m={2}
               data-test="addNewDishButton"

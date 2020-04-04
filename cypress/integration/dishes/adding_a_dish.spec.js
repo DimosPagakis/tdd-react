@@ -8,6 +8,7 @@ describe('adding a dish', () => {
     goToRestaurantPage(RESTAURANT_NAME);
     modalNotShown();
     addDish(DISH_NAME);
+    // dishesRetainedWhenLeavingPage(RESTAURANT_NAME, DISH_NAME);
   });
 
   function addRestaurant(restaurantName) {
@@ -45,6 +46,15 @@ describe('adding a dish', () => {
       .click();
 
     modalNotShown();
+
+    cy.contains(dishName);
+  }
+
+  function dishesRetainedWhenLeavingPage(restaurantName, dishName) {
+    cy.get('[data-test="backButton"]')
+      .click();
+
+    goToRestaurantPage(restaurantName);
 
     cy.contains(dishName);
   }
