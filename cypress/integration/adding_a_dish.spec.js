@@ -1,13 +1,13 @@
 import { RESTAURANT_NAME, DISH_NAME } from '../../constants/messages';
 
-describe.skip('adding a dish', () => {
+describe('adding a dish', () => {
   it('displays a dish in the list', () => {
     cy.visit('http://localhost:1234');
 
     addRestaurant(RESTAURANT_NAME);
     goToRestaurantPage(RESTAURANT_NAME);
     modalNotShown();
-    addDish();
+    addDish(DISH_NAME);
   });
 
   function addRestaurant(restaurantName) {
@@ -34,7 +34,7 @@ describe.skip('adding a dish', () => {
   }
 
   function addDish(dishName) {
-    cy.get('[data-test="addNewDishButton]"')
+    cy.get('[data-test="addNewDishButton"]')
       .click();
 
     cy.get('[data-test="newDishName"]')
