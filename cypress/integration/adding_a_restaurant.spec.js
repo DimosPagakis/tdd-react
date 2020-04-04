@@ -48,7 +48,8 @@ describe('adding a restaurant', () => {
      * Type restaurant name force true so it does not throw an error because label is shown
      */
     cy.get('[data-test="newRestaurantName"]')
-      .type(restaurantName, { force: true });
+      .focus()
+      .type(restaurantName);
 
     // make sure validation error is not shown after user has input text
     cy.get('[data-test="newRestaurantNameError"]')
