@@ -13,7 +13,6 @@ import DishList from '../Dish/DishList';
 import { addDish } from '../store/actions/dishesActions';
 
 class RestaurantDetailPage extends Component {
-
   handleShowNewDishForm = () => {
     $('#addDishModal').modal('open');
   }
