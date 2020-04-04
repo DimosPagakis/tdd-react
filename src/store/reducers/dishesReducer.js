@@ -10,10 +10,12 @@ export default function dishesReducer(state = initialState, action) {
         ...(state[restaurantName] || []),
       ];
 
-      return {
+      state = {
         ...state,
         [restaurantName]: newDishes,
       };
+
+      return state;
     default:
       return state;
   }
