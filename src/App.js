@@ -2,10 +2,9 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
 } from 'react-router-dom';
-import RestaurantListPage from './RestaurantListPage';
-import RestaurantDetailPage from './RestaurantDetailPage';
+import RestaurantListPage from './Restaurant/RestaurantListPage';
+import RestaurantDetailPage from './Restaurant/RestaurantDetailPage';
 
 import { Row, Col } from 'react-materialize';
 

@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import 'babel-polyfill';
 
-import NewDishForm from '../../src/NewDishForm';
+import NewDishForm from '../../src/Dish/NewDishForm';
 
 import { DISH_NAME } from '../../constants/messages';
 

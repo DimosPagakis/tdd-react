@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
-import RestaurantList from '../../src/RestaurantList';
+import RestaurantList from '../../src/Restaurant/RestaurantList';
 
 import { RESTAURANT_NAME } from '../../constants/messages';
 

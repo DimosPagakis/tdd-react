@@ -1,4 +1,4 @@
-import { RESTAURANT_NAME, DISH_NAME } from '../../constants/messages';
+import { RESTAURANT_NAME, DISH_NAME } from '../../../constants/messages';
 
 describe('adding a dish', () => {
   it('displays a dish in the list', () => {

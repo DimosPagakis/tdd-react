@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 
 // styling
-import './forms.scss';
+import '../styles/forms.scss';
 import Material from 'materialize-css';
 import {
   Button,

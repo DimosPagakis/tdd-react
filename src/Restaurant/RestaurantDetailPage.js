@@ -6,8 +6,8 @@ import {
   Modal,
 } from 'react-materialize';
 
-import NewDishForm from './NewDishForm';
-import DishList from './DishList';
+import NewDishForm from '../Dish/NewDishForm';
+import DishList from '../Dish/DishList';
 
 export default class RestaurantDetailPage extends Component {
   state = {
