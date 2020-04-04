@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 
 // styling
-import '../styles/forms.scss';
+import '../../styles/forms.scss';
 import Material from 'materialize-css';
 import {
   Button,
@@ -12,12 +12,12 @@ import {
 
 export default class NewRestaurantForm extends Component {
   handleSave = (values, { resetForm }) => {
-    const { restaurantName } = values;
+    const { dishName } = values;
 
-    if (restaurantName !== '') {
+    if (dishName !== '') {
       const { onSave } = this.props;
 
-      onSave(restaurantName);
+      onSave(dishName);
       resetForm();
     }
   }
@@ -25,8 +25,8 @@ export default class NewRestaurantForm extends Component {
   validate = (values) => {
     const errors = {};
 
-    if (values.restaurantName === '') {
-      errors.restaurantName = 'Cannot be blank';
+    if (values.dishName === '') {
+      errors.dishName = 'Cannot be blank';
     }
 
     return errors;
@@ -37,18 +37,18 @@ export default class NewRestaurantForm extends Component {
       <Row>
         <TextInput
           s={12} m={8}
-          label="Restaurant name"
-          name="restaurantName"
-          value={values.restaurantName}
-          error={errors.restaurantName}
+          label="Dish name"
+          name="dishName"
+          value={values.dishName}
+          error={errors.dishName}
           onChange={handleChange}
-          data-test="newRestaurantName"
+          data-test="newDishName"
         />
         <Button
           s={12} m={4}
           type="submit"
           waves="light"
-          data-test="saveNewRestaurantButton"
+          data-test="saveNewDishButton"
         >Save
         </Button>
       </Row>
@@ -57,7 +57,7 @@ export default class NewRestaurantForm extends Component {
           s={12}
           data-test="newRestaurantNameError"
           className="error"
-        >{errors.restaurantName}
+        >{errors.dishName}
         </p>
       </Row>
     </form>
@@ -67,11 +67,11 @@ export default class NewRestaurantForm extends Component {
     return (
       <Row>
         <Formik
-          initialValues={{ restaurantName: '' }}
+          initialValues={{ dishName: '' }}
           validate={this.validate}
           onSubmit={this.handleSave}
         >
-          { this.renderForm }
+          {this.renderForm}
         </Formik>
       </Row >
     );

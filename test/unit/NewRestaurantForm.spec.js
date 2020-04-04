@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import 'babel-polyfill';
 
-import NewRestaurantForm from '../../src/Restaurant/NewRestaurantForm';
+import NewRestaurantForm from '../../src/Components/Restaurant/NewRestaurantForm';
 
 import { RESTAURANT_NAME } from '../../constants/messages';
 

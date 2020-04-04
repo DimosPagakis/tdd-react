@@ -10,7 +10,7 @@ import {
 
 import NewDishForm from '../Dish/NewDishForm';
 import DishList from '../Dish/DishList';
-import { addDish } from '../store/actions/dishesActions';
+import { addDish } from '../../store/actions/dishesActions';
 
 class RestaurantDetailPage extends Component {
   handleShowNewDishForm = () => {

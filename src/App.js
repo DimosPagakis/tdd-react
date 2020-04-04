@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom';
 import { Row, Col } from 'react-materialize';
 
-import RestaurantListPage from './Restaurant/RestaurantListPage';
-import RestaurantDetailPage from './Restaurant/RestaurantDetailPage';
+import RestaurantListPage from './Components/Restaurant/RestaurantListPage';
+import RestaurantDetailPage from './Components/Restaurant/RestaurantDetailPage';
 
 import store from './store';
 
