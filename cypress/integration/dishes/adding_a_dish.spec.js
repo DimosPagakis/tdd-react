@@ -8,7 +8,7 @@ describe('adding a dish', () => {
     goToRestaurantPage(RESTAURANT_NAME);
     modalNotShown();
     addDish(DISH_NAME);
-    // dishesRetainedWhenLeavingPage(RESTAURANT_NAME, DISH_NAME);
+    dishesRetainedWhenLeavingPage(RESTAURANT_NAME, DISH_NAME);
   });
 
   function addRestaurant(restaurantName) {

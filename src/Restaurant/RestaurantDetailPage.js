@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import {
   Row,
   Col,
@@ -8,11 +10,10 @@ import {
 
 import NewDishForm from '../Dish/NewDishForm';
 import DishList from '../Dish/DishList';
+import { addDish } from '../store/actions/dishesActions';
 
-export default class RestaurantDetailPage extends Component {
-  state = {
-    dishNames: [],
-  }
+class RestaurantDetailPage extends Component {
+
   handleShowNewDishForm = () => {
     $('#addDishModal').modal('open');
   }
@@ -20,15 +21,11 @@ export default class RestaurantDetailPage extends Component {
   handleAddDish = (dishName) => {
     $('#addDishModal').modal('close');
 
-    this.setState(state => ({
-      dishNames: [
-        dishName,
-        ...state.dishNames,
-      ],
-    }));
+    this.props.addDish(dishName);
   }
 
   render() {
+    const { dishes } = this.props;
     return (
       <div>
         <Row>
@@ -55,9 +52,21 @@ export default class RestaurantDetailPage extends Component {
           </Modal>
         </Row>
         <Row>
-          <DishList dishNames={this.state.dishNames} />
+          <DishList dishes={dishes} />
         </Row>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    dishes: state.dishes,
+  };
+}
+
+const mapDispatchToProps = {
+  addDish,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantDetailPage);

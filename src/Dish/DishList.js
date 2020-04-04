@@ -7,12 +7,12 @@ import {
 
 export default class DishList extends Component {
   render() {
-    const { dishNames } = this.props;
+    const { dishes } = this.props;
 
     return (
       <Collection header="Dishes">
         {
-          dishNames.map(dishName => (
+          dishes.map(dishName => (
             <Row key={dishName}>
               <CollectionItem
                 data-test='dishNameListItem'>
@@ -25,3 +25,4 @@ export default class DishList extends Component {
     );
   }
 }
+
