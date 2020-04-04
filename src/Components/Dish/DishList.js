@@ -9,7 +9,7 @@ export default class DishList extends Component {
   render() {
     const { dishes } = this.props;
     return (
-      <Collection header="Dishes">
+      <Collection header="Dishes" data-test="dishesList">
         {
           dishes.map(dishName => (
             <Row key={dishName}>
