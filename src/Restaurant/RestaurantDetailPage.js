@@ -20,11 +20,17 @@ class RestaurantDetailPage extends Component {
   handleAddDish = (dishName) => {
     $('#addDishModal').modal('close');
 
-    this.props.addDish(dishName);
+    const { restaurantName } = this.props.location.state;
+
+    this.props.addDish(restaurantName, dishName);
   }
 
   render() {
     const { dishes } = this.props;
+    const { restaurantName } = this.props.location.state;
+
+    const restaurantDishes = dishes[restaurantName] || [];
+
     return (
       <div>
         <Row>
@@ -51,7 +57,7 @@ class RestaurantDetailPage extends Component {
           </Modal>
         </Row>
         <Row>
-          <DishList dishes={dishes} />
+          <DishList dishes={restaurantDishes} />
         </Row>
       </div>
     );

@@ -5,12 +5,15 @@ export default function dishesReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_DISH:
       const { restaurantName, dishName } = action;
-      const existingDishes = state[restaurantName] || [];
-
-      return state[restaurantName] = [
+      const newDishes = [
         dishName,
-        ...existingDishes,
+        ...(state[restaurantName] || []),
       ];
+
+      return {
+        ...state,
+        [restaurantName]: newDishes,
+      };
     default:
       return state;
   }

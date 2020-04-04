@@ -27,7 +27,12 @@ export default class RestaurantList extends Component {
               <Col s={12} m={8}>
                 <CollectionItem
                   data-test='restaurantNameListItem'>
-                  <Link to={`restaurants/${restaurantName}`}>
+                  <Link to={{
+                    pathname: `restaurants/${restaurantName}`,
+                    state: {
+                      restaurantName,
+                    },
+                  }}>
                     {restaurantName}
                   </Link>
                 </CollectionItem>

@@ -8,7 +8,6 @@ import {
 export default class DishList extends Component {
   render() {
     const { dishes } = this.props;
-
     return (
       <Collection header="Dishes">
         {
