@@ -3,11 +3,11 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import 'babel-polyfill';
 
-import NewRestaurantForm from '../../src/NewRestaurantForm';
+import NewDishForm from '../../src/NewDishForm';
 
-import { RESTAURANT_NAME } from '../../constants/messages';
+import { DISH_NAME } from '../../constants/messages';
 
-describe('NewRestaurantForm', () => {
+describe('NewDishForm', () => {
   describe('clicking the save button', () => {
     let saveHandler;
     let wrapper;
@@ -15,18 +15,18 @@ describe('NewRestaurantForm', () => {
     beforeEach(async () => {
       saveHandler = jest.fn();
 
-      wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
+      wrapper = mount(<NewDishForm onSave={saveHandler} />);
 
       await act(async () => {
         await wrapper
-          .find('input[data-test="newRestaurantName"]')
+          .find('input[data-test="newDishName"]')
           .simulate('change', {
             // you must add this next line as (Formik calls e.persist() internally)
             persist: () => { },
             target:
             {
-              name: 'restaurantName',
-              value: RESTAURANT_NAME,
+              name: 'dishName',
+              value: DISH_NAME,
             },
           });
       });
@@ -40,31 +40,31 @@ describe('NewRestaurantForm', () => {
       });
 
       wrapper
-        .find('button[data-test="saveNewRestaurantButton"]')
+        .find('button[data-test="saveNewDishButton"]')
         .simulate('click');
     });
 
     it('calls the onSave handler', () => {
       expect(saveHandler)
-        .toHaveBeenCalledWith(RESTAURANT_NAME);
+        .toHaveBeenCalledWith(DISH_NAME);
     });
 
     it('clears the input field', () => {
       expect(
-        wrapper.find('input[data-test="newRestaurantName"]')
+        wrapper.find('input[data-test="newDishName"]')
           .prop('value'),
       ).toEqual('');
     });
   });
 
   describe('no name and click save', () => {
-    it('does not add restaurant to list', () => {
+    it('does not add dish to list', () => {
       const saveHandler = jest.fn();
 
-      const wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
+      const wrapper = mount(<NewDishForm onSave={saveHandler} />);
 
       wrapper
-        .find('button[data-test="saveNewRestaurantButton"]')
+        .find('button[data-test="saveNewDishButton"]')
         .simulate('click');
 
       expect(saveHandler).not.toHaveBeenCalled();
