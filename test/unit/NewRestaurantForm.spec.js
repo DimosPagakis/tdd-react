@@ -5,7 +5,7 @@ import 'babel-polyfill';
 
 import NewRestaurantForm from '../../src/NewRestaurantForm';
 
-import { RESTAURANT_NAME } from '../constants/messages';
+import { RESTAURANT_NAME } from '../../constants/messages';
 
 describe('NewRestaurantForm', () => {
   describe('clicking the save button', () => {

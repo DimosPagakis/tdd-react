@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import RestaurantList from '../../src/RestaurantList';
 
-import { RESTAURANT_NAME } from '../constants/messages';
+import { RESTAURANT_NAME } from '../../constants/messages';
 
 describe('Restaurant List', () => {
   describe('clicking the remove button', () => {
