@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 // styling
 import {
   Button,
@@ -8,6 +7,7 @@ import {
   Row,
   Col,
 } from 'react-materialize';
+import { Link } from 'react-router-dom';
 
 export default class RestaurantList extends Component {
   handleOnClick = restaurantName => {
@@ -27,7 +27,9 @@ export default class RestaurantList extends Component {
               <Col s={12} m={8}>
                 <CollectionItem
                   data-test='restaurantNameListItem'>
-                  {restaurantName}
+                  <Link to={`restaurants/${restaurantName}`}>
+                    {restaurantName}
+                  </Link>
                 </CollectionItem>
               </Col>
               <Col s={12} m={4}>
