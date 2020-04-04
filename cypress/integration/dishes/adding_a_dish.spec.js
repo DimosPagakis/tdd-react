@@ -1,4 +1,4 @@
-import { RESTAURANT_NAME, DISH_NAME } from '../../../constants/messages';
+import { RESTAURANT_NAME, RESTAURANT_NAME_ALT, DISH_NAME } from '../../../constants/messages';
 
 describe('adding a dish', () => {
   it('displays a dish in the list', () => {
@@ -8,6 +8,8 @@ describe('adding a dish', () => {
     goToRestaurantPage(RESTAURANT_NAME);
     modalNotShown();
     addDish(DISH_NAME);
+    dishesRetainedWhenLeavingPage(RESTAURANT_NAME, DISH_NAME);
+    dishesStoredPerRestaurant(RESTAURANT_NAME_ALT, DISH_NAME);
   });
 
   function addRestaurant(restaurantName) {
@@ -47,5 +49,25 @@ describe('adding a dish', () => {
     modalNotShown();
 
     cy.contains(dishName);
+  }
+
+  function dishesRetainedWhenLeavingPage(restaurantName, dishName) {
+    cy.get('[data-test="backButton"]')
+      .click();
+
+    goToRestaurantPage(restaurantName);
+
+    cy.contains(dishName);
+
+    cy.get('[data-test="backButton"]')
+      .click();
+  }
+
+  function dishesStoredPerRestaurant(restaurantName, dishName) {
+    addRestaurant(restaurantName);
+    goToRestaurantPage(restaurantName);
+
+    cy.contains(dishName)
+      .should('not.exist');
   }
 });

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import NewRestaurantForm from './NewRestaurantForm';
-import RestaurantList from './RestaurantList';
-
+import { connect } from 'react-redux';
 // Styling
 import {
   Button,
@@ -10,18 +8,16 @@ import {
   Modal,
 } from 'react-materialize';
 
-export default class RestaurantListPage extends Component {
-  state = {
-    restaurantNames: [],
-  };
+import NewRestaurantForm from './NewRestaurantForm';
+import RestaurantList from './RestaurantList';
+import {
+  addRestaurant,
+  removeRestaurant,
+} from '../store/actions/restaurantsActions';
 
+class RestaurantListPage extends Component {
   handleAddRestaurant = (newRestaurantName) => {
-    this.setState(state => ({
-      restaurantNames: [
-        newRestaurantName,
-        ...state.restaurantNames,
-      ],
-    }));
+    this.props.addRestaurant(newRestaurantName);
 
     $('#addRestaurantModal').modal('close');
   }
@@ -31,11 +27,11 @@ export default class RestaurantListPage extends Component {
   }
 
   handleRemoveRestaurant = (restaurantName) => {
-    this.setState({ restaurantNames: this.state.restaurantNames.filter(restaurant => restaurant !== restaurantName) });
+    this.props.removeRestaurant(restaurantName);
   }
 
   render() {
-    const { restaurantNames } = this.state;
+    const { restaurants } = this.props;
 
     return (
       <div>
@@ -64,7 +60,7 @@ export default class RestaurantListPage extends Component {
         </Row>
         <Row>
           <Col s={12}>
-            <RestaurantList restaurants={restaurantNames} onRemove={this.handleRemoveRestaurant} /></Col>
+            <RestaurantList restaurants={restaurants} onRemove={this.handleRemoveRestaurant} /></Col>
         </Row>
       </div>
     );
@@ -76,3 +72,16 @@ const AddNewRestaurantModal = () => (
     <h5>Look at me. I'm Mr.Meeseeks. I'm learning React</h5>
   </div>
 );
+
+function mapStateToProps(state) {
+  return {
+    restaurants: state.restaurants,
+  };
+}
+
+const mapDispatchToProps = {
+  addRestaurant,
+  removeRestaurant,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantListPage);

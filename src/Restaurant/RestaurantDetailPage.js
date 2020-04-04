@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import {
   Row,
   Col,
@@ -8,11 +10,9 @@ import {
 
 import NewDishForm from '../Dish/NewDishForm';
 import DishList from '../Dish/DishList';
+import { addDish } from '../store/actions/dishesActions';
 
-export default class RestaurantDetailPage extends Component {
-  state = {
-    dishNames: [],
-  }
+class RestaurantDetailPage extends Component {
   handleShowNewDishForm = () => {
     $('#addDishModal').modal('open');
   }
@@ -20,17 +20,27 @@ export default class RestaurantDetailPage extends Component {
   handleAddDish = (dishName) => {
     $('#addDishModal').modal('close');
 
-    this.setState(state => ({
-      dishNames: [
-        dishName,
-        ...state.dishNames,
-      ],
-    }));
+    const { restaurantName } = this.props.location.state;
+
+    this.props.addDish(restaurantName, dishName);
   }
 
   render() {
+    const { dishes } = this.props;
+    const { restaurantName } = this.props.location.state;
+
+    const restaurantDishes = dishes[restaurantName] || [];
+
     return (
       <div>
+        <Row>
+          <Col>
+            <Button
+              s={12}
+              data-test="backButton"
+              onClick={() => this.props.history.goBack()}>Back</Button>
+          </Col>
+        </Row>
         <Row>
           <Col >
             <Button s={12} m={2}
@@ -47,9 +57,21 @@ export default class RestaurantDetailPage extends Component {
           </Modal>
         </Row>
         <Row>
-          <DishList dishNames={this.state.dishNames} />
+          <DishList dishes={restaurantDishes} />
         </Row>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    dishes: state.dishes,
+  };
+}
+
+const mapDispatchToProps = {
+  addDish,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantDetailPage);
