@@ -12,6 +12,7 @@ module.exports = {
         'jest/globals': true,
         'browser': true,
         "cypress/globals": true,
-        "jquery": true
+        "jquery": true,
+        'es6': true,
     }
 };
