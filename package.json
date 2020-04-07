@@ -34,6 +34,7 @@
         "sass": "^1.26.3"
     },
     "dependencies": {
+        "axios": "^0.19.2",
         "formik": "^2.1.4",
         "jquery": "^3.4.1",
         "materialize-css": "^1.0.0",
@@ -44,7 +45,8 @@
         "react-redux": "^7.2.0",
         "react-router-dom": "^5.1.2",
         "redux": "^4.0.5",
-        "redux-devtools-extension": "^2.13.8"
+        "redux-devtools-extension": "^2.13.8",
+        "redux-thunk": "^2.3.0"
     },
     "jest": {
         "setupFilesAfterEnv": [
