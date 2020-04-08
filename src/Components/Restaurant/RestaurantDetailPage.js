@@ -10,9 +10,15 @@ import {
 
 import NewDishForm from '../Dish/NewDishForm';
 import DishList from '../Dish/DishList';
-import { addDish } from '../store/actions/dishesActions';
+import UserList from '../User/UserList';
+import { addDish } from '../../store/actions/dishesActions';
+import { loadUsers } from '../../store/actions/usersActions';
 
 class RestaurantDetailPage extends Component {
+  componentDidMount() {
+    this.props.loadUsers();
+  }
+
   handleShowNewDishForm = () => {
     $('#addDishModal').modal('open');
   }
@@ -26,7 +32,7 @@ class RestaurantDetailPage extends Component {
   }
 
   render() {
-    const { dishes } = this.props;
+    const { dishes, users } = this.props;
     const { restaurantName } = this.props.location.state;
 
     const restaurantDishes = dishes[restaurantName] || [];
@@ -59,6 +65,9 @@ class RestaurantDetailPage extends Component {
         <Row>
           <DishList dishes={restaurantDishes} />
         </Row>
+        <Row>
+          <UserList users={users}></UserList>
+        </Row>
       </div>
     );
   }
@@ -67,10 +76,12 @@ class RestaurantDetailPage extends Component {
 function mapStateToProps(state) {
   return {
     dishes: state.dishes,
+    users: state.users,
   };
 }
 
 const mapDispatchToProps = {
+  loadUsers,
   addDish,
 };
 

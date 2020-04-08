@@ -13,7 +13,7 @@ import RestaurantList from './RestaurantList';
 import {
   addRestaurant,
   removeRestaurant,
-} from '../store/actions/restaurantsActions';
+} from '../../store/actions/restaurantsActions';
 
 class RestaurantListPage extends Component {
   handleAddRestaurant = (newRestaurantName) => {
