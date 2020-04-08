@@ -13,7 +13,7 @@ describe('users actions', () => {
         {
           id: 1,
           name: "John Doe",
-          username: "John Doe",
+          username: "JohnDoe",
         },
         {
           id: 2,

@@ -1,4 +1,4 @@
-import { RESTAURANT_NAME, DISH_NAME, DISH_NAME_ALT } from '../../constants/messages';
+import { RESTAURANT_NAME, DISH_NAME } from '../../constants/messages';
 import dishes from '../../src/store/reducers/dishesReducer';
 import { ADD_DISH } from '../../src/store/actions/dishesActions';
 
