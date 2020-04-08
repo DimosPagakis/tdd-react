@@ -22,25 +22,25 @@ export default class RestaurantList extends Component {
     return (
       <Collection header="Restaurants">
         {
-          restaurants.map(restaurantName => (
-            <Row key={restaurantName}>
+          restaurants.map(restaurant => (
+            <Row key={restaurant.name}>
               <Col s={12} m={8}>
                 <CollectionItem
                   data-test='restaurantNameListItem'>
                   <Link to={{
-                    pathname: `restaurants/${restaurantName}`,
+                    pathname: `restaurants/${restaurant.name}`,
                     state: {
-                      restaurantName,
+                      restaurant: restaurant.name,
                     },
                   }}>
-                    {restaurantName}
+                    {restaurant.name}
                   </Link>
                 </CollectionItem>
               </Col>
               <Col s={12} m={4}>
                 <Button
                   data-test='removeRestaurantButton'
-                  onClick={() => this.handleOnClick(restaurantName)}>
+                  onClick={() => this.handleOnClick(restaurant.name)}>
                   Remove
                 </Button>
               </Col>

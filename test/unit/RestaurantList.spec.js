@@ -10,9 +10,15 @@ describe('Restaurant List', () => {
     it('calls the onRemoveHandler', () => {
       const onRemoveHandler = jest.fn();
 
+      const restaurants = [
+        {
+          name: RESTAURANT_NAME,
+        },
+      ];
+
       const wrapper = mount(
         <Router>
-          <RestaurantList onRemove={onRemoveHandler} restaurants={[RESTAURANT_NAME]} />
+          <RestaurantList onRemove={onRemoveHandler} restaurants={restaurants} />
         </Router>);
 
       wrapper.find('button[data-test="removeRestaurantButton"]').at(0).simulate('click');

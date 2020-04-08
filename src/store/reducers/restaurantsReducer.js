@@ -4,9 +4,9 @@ const initialState = [];
 export default function restaurantReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_RESTAURANT:
-      return [action.name, ...state];
+      return [action.restaurant, ...state];
     case REMOVE_RESTAURANT:
-      return state.filter(restaurant => restaurant !== action.name);
+      return state.filter(restaurant => restaurant.name !== action.name);
     default:
       return state;
   }
