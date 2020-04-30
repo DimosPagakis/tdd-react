@@ -36,7 +36,7 @@
     "dependencies": {
         "axios": "^0.19.2",
         "formik": "^2.1.4",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "materialize-css": "^1.0.0",
         "node-sass": "^4.13.1",
         "react": "^16.13.1",
